@@ -41,6 +41,9 @@ omit =
     homeassistant/components/google.py
     homeassistant/components/*/google.py
 
+    homeassistant/components/ikea_tradfri.py
+    homeassistant/components/*/ikea_tradfri.py
+
     homeassistant/components/insteon_hub.py
     homeassistant/components/*/insteon_hub.py
 
