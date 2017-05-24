@@ -27,15 +27,15 @@ _LOGGER = logging.getLogger(__name__)
 
 CONF_IMAGE = 'image'
 
-BOARD_SCHEMA = vol.Schema({
-    vol.Required(CONF_IMAGE):  cv.string,
-    vol.Optional(CONF_NAME): cv.string,
-    vol.Optional(CONF_ICON): cv.icon,
- }, extra=vol.ALLOW_EXTRA)
-
 CONFIG_SCHEMA = vol.Schema({
-    DOMAIN: cv.ordered_dict(BOARD_SCHEMA)
-}, extra=vol.ALLOW_EXTRA)
+    DOMAIN: vol.Schema({
+        cv.match_all: vol.Schema({
+            vol.Required(CONF_IMAGE):  cv.string,
+            vol.Optional(CONF_NAME): cv.string,
+            vol.Optional(CONF_ICON): cv.icon,
+            })
+        })
+    }, extra=vol.ALLOW_EXTRA)
 
 
 def setup(hass, config):
